@@ -1,0 +1,38 @@
+<p><%= notice %><p>
+<%= form_tag('/songs', :method => :get) do %>
+  <%= text_field_tag "qstr_title", nil, placeholder: "search song title" %>
+  <%= text_field_tag "qstr_artist", nil, placeholder: "search song artist" %>
+  <%= text_field_tag "qstr_album", nil, placeholder: "search song album" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<h3>Song List</h3>
+
+<% unless @songs.blank? %>
+  <table>
+    <thead>
+      <tr style="background: #ccc">
+        <td>Title</td><td>Artist</td><td>Album</td><td>Track No.</td><td>File name</td>
+      </tr>
+    <thead>
+    </tbody>
+      <% @songs.each do |song| %>
+        <tr style="background: #eee">
+          <td><%= song.title %></td>
+          <td><%= song.artist %></td>
+          <td><%= song.album %></td>
+          <td><%= song.tracknum %></td>
+          <td><%= song.song_file_name %></td>
+        <tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <% if !@from_search %>
+    No songs listed yet. Add one <%= link_to "here", new_song_path %>
+  <% else %>
+    <p>No results found:</p>
+  <% end %>
+<% end %>
+
+<p>Add new song <%= link_to "here", new_song_path %></p>

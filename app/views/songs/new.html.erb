@@ -1,0 +1,6 @@
+<h3>New song</h3>
+
+<%= form_for @song, :url => songs_path, :html => { :multipart => true } do |form| %>
+  <%= form.file_field :song %>
+  <%= form.submit %>
+<% end %>
