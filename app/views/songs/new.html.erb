@@ -1,6 +1,7 @@
-<h3>New song</h3>
+<h2>New song</h2>
 
+<p>Choose a file from your computer</p>
 <%= form_for @song, :url => songs_path, :html => { :multipart => true } do |form| %>
   <%= form.file_field :song %>
-  <%= form.submit %>
+  <p><%= form.submit "Save song" %></p>
 <% end %>

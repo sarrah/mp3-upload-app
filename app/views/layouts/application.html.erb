@@ -7,9 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to "List", songs_path %> / <%= link_to "Add Song", new_song_path %>
+<div id="header_nav"><%= link_to "List", songs_path %> / <%= link_to "Add Song +", new_song_path %></div>
 
-<%= yield %>
+<div id="content">
+  <%= yield %>
+</end>
 
 </body>
 </html>

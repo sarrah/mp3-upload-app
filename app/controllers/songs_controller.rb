@@ -6,7 +6,7 @@ class SongsController < ApplicationController
     @qstr_title = params[:qstr_title]
     @qstr_artist = params[:qstr_artist]
     @qstr_album = params[:qstr_album]
-    
+
     @res = Song.where("title like ? AND artist like ? AND album like ?", "%#{@qstr_title}%", "%#{@qstr_artist}%", "%#{@qstr_album}%")
 
     if !@qstr_title.blank? || !@qstr_artist.blank? || !@qstr_album.blank?
@@ -38,7 +38,7 @@ class SongsController < ApplicationController
       flash[:notice] = "Song succesfully added!"
       redirect_to songs_path
     else
-      flash[:notice] = "Cannot save file. Only MP3 files are allowed."
+      flash[:error] = "Cannot save file. Only MP3 files are allowed."
       redirect_to songs_path
     end
   end

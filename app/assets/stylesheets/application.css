@@ -11,3 +11,17 @@
  *= require_self
  *= require_tree .
  */
+
+body { font-family: "Trebuchet MS", Helvetica, sans-serif; }
+
+h2 { color: #9a679f; }
+
+table td { padding: 3px; }
+
+#header_nav { background-color: #000; color: #ccc; padding: 10px 30px 10px 30px; margin: 0; }
+#header_nav a { color: #fff; }
+
+#content { margin:0 auto; width: 1000px; }
+
+.notice { color: #9a679f; }
+.error { color: #d3414a; }

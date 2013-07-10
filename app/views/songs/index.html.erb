@@ -1,4 +1,6 @@
-<p><%= notice %><p>
+<p class="notice"><%= flash[:notice] %></p>
+<p class="error"><%= flash[:error] %><p>
+
 <%= form_tag('/songs', :method => :get) do %>
   <%= text_field_tag "qstr_title", nil, placeholder: "search song title" %>
   <%= text_field_tag "qstr_artist", nil, placeholder: "search song artist" %>
@@ -6,7 +8,7 @@
   <%= submit_tag "Search" %>
 <% end %>
 
-<h3>Song List</h3>
+<h2>Song List</h2>
 
 <% unless @songs.blank? %>
   <table>
@@ -29,10 +31,8 @@
   </table>
 <% else %>
   <% if !@from_search %>
-    No songs listed yet. Add one <%= link_to "here", new_song_path %>
+    No songs listed yet. Add one <%= link_to "here", new_song_path %>!
   <% else %>
-    <p>No results found:</p>
+    <p>No results found.</p>
   <% end %>
 <% end %>
-
-<p>Add new song <%= link_to "here", new_song_path %></p>
